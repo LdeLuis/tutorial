@@ -3,13 +3,61 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\postController;
-
+use App\Models\Posts;
 
 Route::get('/', HomeController::class);
 
 Route::get('/posts', [postController::class, 'index']);
 Route::get('posts/create',[postController::class, 'create']);
 Route::get('/posts/{post}', [postController::class, 'show']);
+
+Route::get('prueba', function(){
+
+    /*
+    //crear nuevo posts
+    $posts = new Post;
+
+    $posts->title = 'Titulo de prueba 3';
+    $posts->content = 'Contendo de prueba 3';
+    $posts->categoria = 'Categoria de prueba 3';
+
+    $posts->save();
+
+    return $posts;
+    */
+    
+    /*
+    //Buscar registros
+    $posts= Post::find(1); 
+
+    //$posts = Post::where('title', 'Titulo prueba 1')->firsh(); --no me funciono
+
+    //Actualizar registros
+    $posts->categoria = 'Desarrollo web';
+    $posts->save();
+
+    return $posts;
+    */
+    /*
+    //Listar registros posts
+    $posts = Post::orderby('categoria','asc')
+                    ->select('id','title','categoria')
+                    ->take(2) //limitar cantidad de registros que quieres que te traiga
+                    ->get();
+
+    return $posts;
+    */
+
+    /*
+    //Eliminar registro
+    $posts= Post::find(1);
+
+    $posts->delete();
+
+    return 'Eliminado correctamente';
+    */
+
+});
 
 
 

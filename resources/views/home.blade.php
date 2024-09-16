@@ -1,13 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel 11</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+{{-- <x-app-layout>
+    --contenido--
+</x-app-layout>  se usa para llamar a la plantilla tipo 1 --}}
+
+
+{{-- Tipo de plantilla 2 --}}
+@extends('layouts/app')  
+
+@section('title', 'Laravel')
+
+{{-- se usa para stack // la diferencia es que yield es de un unico contenido
+ y stack puede ir sumando varios que coloques en un mismo archivo --}}
+@push('css')
+    <style>
+        body{
+            background-color: whitesmoke;
+        }
+    </style>
+@endpush
+@push('css')
+<style>
+    body{
+        color: #a81b1b;
+    }
+</style>
+@endpush
+
+
+@section('content')
+
     <div class="max-w-4xl mx-auto px-4">
         {{-- <h1>Bienvenido a la página principal</h1> --}}
 
@@ -21,5 +41,8 @@
         </x-alert2>
         <p>Hola mundo</p>
     </div>
-</body>
-</html>
+    
+@endsection
+
+    
+
